@@ -15,24 +15,25 @@ ctx.beginPath();
         ctx.stroke();
     }
 
-//Parte de cima
+//Parte de cima do cano
 ctx.fillStyle = '#01ad01';
 ctx.beginPath();
 ctx.fillRect(695,170,200,80);
 ctx.fill();
-//Parte de cima - Contorno
+
+//Parte de cima do cano - Contorno
 ctx.fillStroke = 'black';
 ctx.lineWidth = 4;
 ctx.beginPath();
 ctx.strokeRect(695,170,200,80);
 ctx.stroke();
 
-//Parte de baixo
+//Parte de baixo do cano
 ctx.fillStyle = '#01ad01';
 ctx.beginPath();
 ctx.fillRect(725,240,140,100);
 ctx.fill();
-//Parte de baixo - Contorno
+//Parte de baixo do cano  - Contorno
 ctx.fillStroke = 'black';
 ctx.lineWidth = 4;
 ctx.beginPath();
@@ -73,10 +74,35 @@ ctx.beginPath();
 ctx.strokeRect(3,3,994,494)
 ctx.stroke();
 
+//blocos 
 ctx.fillStyle = '#663300';
 ctx.beginPath();
 ctx.fillRect(130,90,350,70);
 ctx.fill();
+
+//linhas dos cubos 
+ctx.beginPath();
+    for(var x=129; x<=500; x=x+70){
+        ctx.strokeStyle="black";
+        ctx.moveTo(x,90);
+        ctx.lineTo(x,160);
+        ctx.lineWidth=3;
+        ctx.stroke();
+}
+//linha de cima dos blocos 
+ctx.strokeStyle="black";
+ctx.moveTo(481,90);
+ctx.lineTo(127,90);
+ctx.lineWidth=4;
+ctx.stroke();
+//linha de baixo dos blocos
+ctx.strokeStyle="black";
+ctx.moveTo(481,160);
+ctx.lineTo(127,160);
+ctx.lineWidth=4;
+ctx.stroke();
+
+
 
 
 //ctx.fillStyle='#FFB81C';
