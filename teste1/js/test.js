@@ -1,7 +1,8 @@
 var canvas = document.getElementById('exemplo');
 var ctx = canvas.getContext("2d");
 var grdlinear = ctx.createLinearGradient(185, 45, 185, 75);
-var image = new Image();
+var img = new Image();
+var img2 = new Image();
 
 ctx.fillStyle = '#ba5111';
 ctx.beginPath();
@@ -42,8 +43,8 @@ ctx.fillRect(725,248,140,90);
 ctx.fill();
 
 //Parte de baixo do cano - Sombreado
-ctx.fillStyle = '#81d110';
 ctx.beginPath();
+ctx.fillStyle = '#81d110';
 ctx.fillRect(725,248,20,90);
 ctx.fill();
 
@@ -52,6 +53,13 @@ ctx.fillStroke = 'black';
 ctx.lineWidth = 4;
 ctx.beginPath();
 ctx.strokeRect(725,250,140,90);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.strokeStyle = "#81d110";
+ctx.lineWidth = 5;
+ctx.moveTo(697,174);
+ctx.lineTo(893,174);
 ctx.stroke();
 
 ctx.beginPath();
@@ -236,17 +244,16 @@ ctx.lineTo(127,90);
 ctx.lineWidth=4;
 ctx.stroke();
 //linha de baixo dos blocos
+ctx.beginPath();
 ctx.strokeStyle="black";
 ctx.moveTo(481,160);
 ctx.lineTo(127,160);
 ctx.lineWidth=4;
 ctx.stroke();
-
 ctx.fillStyle='black';
 ctx.font="50px Times New Roman";
 ctx.fillText("?" ,363,140,100);
 ctx.stroke();
-
 ctx.fillStyle='#bb4c16';
 ctx.font="50px Times New Roman";
 ctx.fillText("?" ,361,140,100);
@@ -255,6 +262,8 @@ ctx.stroke();
 //Nuvem
 ctx.fillStyle="#fcfcfc";
 ctx.beginPath();
+ctx.shadowBlur = 30;
+ctx.shadowColor = "#A6DDF8";
 ctx.arc(655,70,30,0,2*3.14);
 ctx.arc(755,70,30,0,2*3.14);
 ctx.arc(706,70,30,0,2*3.14);
@@ -264,9 +273,18 @@ ctx.arc(736,50,30,0,2*3.14);
 ctx.arc(736,95,30,0,2*3.14);
 ctx.fill();
 
-ctx.strokeStyle = "#81d110";
-ctx.lineWidth = 5;
-ctx.beginPath();
-ctx.moveTo(697,174);
-ctx.lineTo(893,174);
-ctx.stroke();
+//Imagem Mario
+img.onload=function(){
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = "black";
+    ctx.drawImage(img, 75, 248, 63, 90);
+};
+img.src= 'img/mario.png';
+
+//Imagem Goomba
+img2.onload=function(){
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = "black";
+    ctx.drawImage(img2, 500, 275, 70, 65);
+};
+img2.src= 'img/goomba.png';
