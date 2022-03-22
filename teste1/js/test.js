@@ -259,11 +259,59 @@ ctx.font="50px Times New Roman";
 ctx.fillText("?" ,361,140,100);
 ctx.stroke();
 
+//Imagem Mario
+img.onload=function(){
+    const w = img.width,
+        h = img.height;
+        
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = "black";
+    ctx.globalAlpha = 1.0;
+    ctx.fillText('Smoothing = FALSE', w * 5.5, 20);
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(img, 75, 248, 63, 90);
+};
+img.src= 'img/mario.png';
+
+//Imagem Goomba
+img2.onload=function(){
+    const w = img.width,
+        h = img.height;
+    
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = "black";
+    ctx.fillText('Smoothing = FALSE', w * 5.5, 20);
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(img2, 500, 275, 70, 65);
+};
+img2.src= 'img/goomba.png';
+
+//Moeda
+ctx.beginPath();
+ctx.fillStyle="#f6dc2d";
+ctx.shadowColor = "#e6d223";
+ctx.ellipse(302, 55, 15, 25, Math.PI / 1, 0, 2 * Math.PI);
+ctx.fill();
+
+ctx.beginPath();
+ctx.strokeStyle="black";
+ctx.lineWidth=3;
+ctx.ellipse(302, 55, 15, 25, Math.PI / 1, 0, 2 * Math.PI);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.strokeStyle = "#e7bb12";
+ctx.lineWidth = 6;
+ctx.moveTo(302,43);
+ctx.lineTo(302,67);
+ctx.stroke();
+
 //Nuvem
 ctx.fillStyle="#fcfcfc";
 ctx.beginPath();
 ctx.shadowBlur = 30;
 ctx.shadowColor = "#A6DDF8";
+ctx.globalAlpha = 0.6;
 ctx.arc(655,70,30,0,2*3.14);
 ctx.arc(755,70,30,0,2*3.14);
 ctx.arc(706,70,30,0,2*3.14);
@@ -272,19 +320,3 @@ ctx.arc(686,50,30,0,2*3.14);
 ctx.arc(736,50,30,0,2*3.14);
 ctx.arc(736,95,30,0,2*3.14);
 ctx.fill();
-
-//Imagem Mario
-img.onload=function(){
-    ctx.shadowBlur = 10;
-    ctx.shadowColor = "black";
-    ctx.drawImage(img, 75, 248, 63, 90);
-};
-img.src= 'img/mario.png';
-
-//Imagem Goomba
-img2.onload=function(){
-    ctx.shadowBlur = 10;
-    ctx.shadowColor = "black";
-    ctx.drawImage(img2, 500, 275, 70, 65);
-};
-img2.src= 'img/goomba.png';
